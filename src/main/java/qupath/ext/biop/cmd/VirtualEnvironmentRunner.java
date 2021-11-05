@@ -130,8 +130,8 @@ public class VirtualEnvironmentRunner {
             case OSX:
                 shell.addAll(Arrays.asList("bash", "-c"));
 
-                String cmdString = "\"" + command.toString().replace(",","") + "\"";
-                shell.add(cmdString.substring(1, cmdString.length()-1));
+                String cmdString = command.toString().replace(",","");
+                shell.add("\"" + cmdString.substring(1, cmdString.length()-1) + "\"");
                 break;
 
             case WINDOWS:
