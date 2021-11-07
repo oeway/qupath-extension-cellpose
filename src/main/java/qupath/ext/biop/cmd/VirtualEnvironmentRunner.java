@@ -127,10 +127,13 @@ public class VirtualEnvironmentRunner {
         switch (Platform.getCurrent()) {
 
             case UNIX:
-            case OSX:
-                // shell.addAll(Arrays.asList("bash", "-c"));
+                shell.addAll(Arrays.asList("bash", "-c"));
                 String cmdString = command.toString().replace(",","");
-                cmdString = cmdString.substring(1, cmdString.length()-1)
+                shell.add(cmdString.substring(1, cmdString.length()-1));
+                break;
+            case OSX:
+                String cmdString = command.toString().replace(",","");
+                cmdString = cmdString.substring(1, cmdString.length()-1);
                 shell.addAll(cmdString.split(" "));
                 break;
 
