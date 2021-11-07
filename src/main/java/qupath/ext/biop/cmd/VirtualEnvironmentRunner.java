@@ -132,9 +132,9 @@ public class VirtualEnvironmentRunner {
                 shell.add(cmdString.substring(1, cmdString.length()-1));
                 break;
             case OSX:
-                String cmdString = command.toString().replace(",","");
-                cmdString = cmdString.substring(1, cmdString.length()-1);
-                shell.addAll(cmdString.split(" "));
+                String cmdStringOSX = command.toString().replace(",","");
+                cmdStringOSX = cmdStringOSX.substring(1, cmdStringOSX.length()-1);
+                shell.addAll(Arrays.asList(cmdStringOSX.split(" ")));
                 break;
 
             case WINDOWS:
